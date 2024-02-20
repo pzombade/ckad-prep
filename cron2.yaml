@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mycronjob
+  namespace: chapter-01
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 10
+      completions: 2
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: busy-cron
+            image: busybox
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
