@@ -8,3 +8,7 @@ Exampes:
 ```
 k run nginx --image nginx do > n2.yaml
 ```
+
+```
+k set image pod/nginx nginx=nginx:1.7.
+```
