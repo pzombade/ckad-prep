@@ -20,3 +20,9 @@ Create a pod that will be placed on node controlplane. Use nodeSelector and tole
 nodeSelector:
   kubernetes.io/hostName: controlplane
 ```
+
+Expose run and expose nginx image on port 80. Hit this image with busybox on the nginx cluster ip.
+```
+k run nginx --image nginx --port 80 --expose
+k run busybox --image busybox --restart Never --rm -it -- wget -O- 10.42.0.11:80 exit
+```
