@@ -6,7 +6,7 @@ k config set-context --current --namespace=core-banking
 ```
 Examples:
 ```
-k run nginx --image nginx do > n2.yaml
+k run nginx --image nginx $do > n2.yaml
 ```
 
 ```
